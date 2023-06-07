@@ -1,2 +1,2 @@
-# Upgrad-Final-Project
-The Complete Front end part of the Scribbler Website
+<h1 align="center">Scribbler Project</h1>
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+  <link href="https://fontawesome.com/v5/icons/edit?f=classic&s=solid&pc=%23ffffff">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../styles/post.css">
+  
+  <title></title>
+  <style>
+    #button-wrapper button {
+  background-color: blue;
+  padding: 5px 15px;
+  color: white;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Styles for form labels */
+/* Styles for the sign-up modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.fghjk{
+  background-color: #5cd65c;
+  width:100%;
+  height:35px;
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-header .close-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-heading {
+  font-size: 24px;
+  margin: 0;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input[type="password"] {
+  letter-spacing: 2px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper button {
+  padding: 10px 20px;
+  background-color: #00ff00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-wrapper button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+/* Styles for the sign-up modal */
+.modal-content {
+  /* Existing code */
+  position: relative; /* Add this line to position the modal content */
+
+  /* Other existing styles */
+
+   /* Add this line to center-align the content */
+}
+
+.modal-header {
+  /* Existing code */
+  position: relative; /* Add this line to position the header elements */
+
+  /* Other existing styles */
+
+  display: flex;
+ 
+  justify-content: space-between;
+}
+
+.modal-header .close-icon {
+  /* Existing code */
+  position: absolute; /* Add this line to position the close icon */
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal-heading {
+  /* Existing code */
+  margin: 0;
+  flex-grow: 1; /* Add this line to allow the heading to occupy remaining space */
+   /* Add this line to center-align the heading */
+}
+
+.button-wrapper {
+  /* Existing code */
+  display: flex;
+  justify-content: flex-end;
+   /* Add this line to vertically align the buttons */
+}
+
+.button-wrapper button {
+  /* Existing code */
+  margin-left: 10px; /* Add this line to create space between buttons */
+}
+
+
+  </style>
+  <script src="../scripts/post.js"></script>
+  <script src="../scripts/index.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var signUpLink = document.getElementById("signUpLink");
+      var signUpBtn = document.getElementById("signUp");
+      var signInBtn = document.getElementById("signIn");
+
+      var signUpModal = document.getElementById("modal-signUp");
+      var signInModal = document.getElementById("signInModal");
+
+      var closeSignIn = document.getElementById("closeSignIn");
+      var closeSignUp = document.getElementById("closeSignUp");
+
+      signUpBtn.addEventListener("click", () => openModal(signUpModal));
+      signInBtn.addEventListener("click", () => openModal(signInModal));
+
+      closeSignIn.addEventListener("click", () => closeModal(signInModal));
+      closeSignUp.addEventListener("click", () => closeModal(signUpModal));
+
+      signUpLink.onclick = function() {
+        closeModal(signInModal);
+        openModal(signUpModal);
+      };
+
+      window.addEventListener("click", function(event) {
+        if (event.target == signUpModal) {
+          signUpModal.style.display = "none";
+        }
+        if (event.target == signInModal) {
+          signInModal.style.display = "none";
+        }
+      });
+
+      openModal = modal => {
+        modal.style.display = "block";
+      };
+
+      closeModal = modal => {
+        modal.style.display = "none";
+      };
+    });
+  </script>
+</head>
+<body>
+  <div class="header">
+        <div id="title">
+             <p id="heading">ScriBBler</p>
+             <p id="sub-heading">Explore, Imagine, Create</p>
+        </div>
+        <div id="button-wrapper">
+            <button id="signUp">Sign Up</button>
+            <button id="signIn">Sign In</button>
+        </div>
+         <!-- The Sign Up Modal -->
+      <div id="modal-signUp" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close-icon" id="closeSignUp"
+              ><i class="fa fa-times fa-lg" aria-hidden="true"></i
+            ></span>
+            <h2 class="modal-heading">Get Started</h2>
+          </div>
+          <div class="modal-body">
+            <form >
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Enter your username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cnfpwd">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="cnfpwd"
+                  placeholder="Re-enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="fghjk">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+       <!-- The Sign In Modal -->
+       <div id="signInModal" class="modal">
+                   <!-- Modal content -->
+            <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-icon" id="closeSignIn"
+                ><i class="fa fa-times fa-lg" aria-hidden="true"></i
+              ></span>
+              <h2 class="modal-heading">Welcome Back!</h2>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="pwd"
+                    placeholder="Enter your password"
+                    required="true"
+                  />
+                </div>
+                <button type="submit" class="fghjk">
+                  Sign In
+                </button>
+                <p class="not-member">
+                  Not a member? <span id="signUpLink">Sign Up</span>
+                </p>
+              </form>
+            </div>
+            </div>
+       </div>
+    </div>
+
+    <div id="container" class="abcd">
+      <center><h2 class="post-title editable" tabindex="0">Everything you should know about 'module' & require in Node.js</h2></center>
+      <div class="author">
+        <button class="edit-button" onclick="editfunction(event)">
+          <h1 class="editt"></h1>
+            <span class="button-text">Edit</span> <i class="fas fa-edit" style="color: #ffffff;"></i>
+        </button>
+      </div>
+      <h3>Srishti Gupta</h3>
+          <p class="post-text editable">Node.js has a vast ecosystem of modules and packages available through the npm (Node Package Manager) registry. This rich ecosystem provides developers with a wide range of libraries and frameworks for various purposes, including web application frameworks like Express.js, Hapi.js, or Koa.js, which simplify the process of building robust and scalable web servers. Additionally, Node.js supports modules for database connectivity, such as MongoDB, MySQL, or PostgreSQL, allowing developers to seamlessly interact with different database systems.Another significant advantage of Node.js is its ability to easily share code between the front-end and back-end, thanks to the use of JavaScript on both sides. This facilitates code reusability and reduces the learning curve for developers working on full-stack projects. Moreover, Node.js provides excellent support for asynchronous programming, leveraging callbacks, promises, or async/await syntax to handle asynchronous operations effectively, avoiding callback hell and simplifying code maintenance.Node.js is highly scalable and can handle a large number of concurrent connections with relatively low resource consumption. It is often used in microservices architectures and is an ideal choice for building applications that need to scale horizontally by adding more servers or containers. The ability to handle a massive number of concurrent connections efficiently makes Node.js a suitable choice for real-time applications, such as instant messaging platforms or collaborative tools.Furthermore, Node.js is cross-platform, supporting major operating systems like Windows, macOS, and Linux. This cross-platform compatibility enables developers to build and deploy Node.js applications on a wide range of environments, making it highly flexible and adaptable to various deployment scenarios.</p>
+</div>
+    <div class="like">
+      <button class="like-button" onclick="likefunction()">
+          <h1 class="editt"></h1>
+            <span class="buttonlike-text">Like</span> <i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i>
+        </button></br></br></br>
+        
+    </div>
+
+    <div class="fgh">
+      <p class="like-class"></p>
+    </div>
+
+
+    <div class="comment-box"></br></br></br>
+  <textarea class="comment-input" placeholder="Leave a comment..." rows="5" cols="132"></textarea>
+  <div class="last-div">
+  <button class="comment-button" onclick="submitComment()">Comment</button>
+</div>
+</br></br></br></br>
+<div class="all-comments">
+  <div>
+  </div>
+  <!-- Existing comments will be displayed here -->
+</div>
+
+</div>
+
+
+</body>
+</html>
+
